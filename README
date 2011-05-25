@@ -1,0 +1,21 @@
+The Prowl plugin requires the following to get started:
+
+-config/prowl.php
+-- OPTIONAL: input your Prowl API key (the API key is a unique identifier which is used to send push notifications to a device; it can also be used as a developer API key but is optional)
+
+In your models that you wish to use Prowl, add it to the $uses array:
+	var $uses = array('Prowl.Prowl');
+
+Creating a push notification is as simple as the following:
+	$this->Prowl->create();
+	if (! $this->Prowl->save($data)) {
+		//print or log error
+	}
+
+An example shell task is provided to see one possible use of this plugin. Other uses might be to alert web-users of certain actions, such as:
+ - balance due
+ - new reply to your forum post
+ - approve/comment (administration)
+ - new activity in helpdesk support ticket
+
+You are only limited to your imagination and the capabilities of Prowl itself.
