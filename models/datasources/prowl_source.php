@@ -7,7 +7,7 @@
 class ProwlSource extends DataSource {
 	var $apikey      = '';
 	var $description = 'Prowl API';
-	var $endpoint    = 'https://prowl.weks.net/publicapi/';
+	var $endpoint    = 'https://api.prowlapp.com/publicapi/';
 	var $socket      = null;
 	var $response    = null;
 

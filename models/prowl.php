@@ -19,6 +19,11 @@ class Prowl extends ProwlAppModel {
 			'null' => true,
 			'length' => 11
 		),
+		'url' => array(
+			'type' => '',
+			'null' => 'true',
+			'length' => 512
+		),
 		'application' => array(
 			'type' => 'string',
 			'null' => false,
@@ -76,6 +81,12 @@ class Prowl extends ProwlAppModel {
 				'message' => 'This field\'s value must be set between -2 and 2.'
 			)
 		),
+		'url' => array(
+			'website' => array(
+				'rule' => array('url', true),	//requires a protocol
+				'message' => 'A valid web address must be used, including the http:// portion.'
+			)
+		),
 		'application' => array(
 			'notEmpty' => array(
 				'rule' => 'notEmpty',
@@ -122,6 +133,14 @@ class Prowl extends ProwlAppModel {
 		return array();
 	}
 
+	/**
+	 * One field or another are required, this method tests that either `event` or `description` has some value
+	 * 
+	 * @return boolean
+	 * @param string $fieldValue contains the value of a field
+	 * @param string $fieldNameToCompare contains the name of a field used to compare values with the current field
+	 * @access public
+	 */
 	function oneOfTwoNotEmpty($fieldValue, $fieldNameToCompare){
 		if(!empty($fieldValue)){
 			return true;
