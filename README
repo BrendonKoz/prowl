@@ -1,3 +1,5 @@
+--- Currently only compatible with Cake v1.3 ---
+
 The Prowl plugin requires the following to get started:
 
 -config/prowl.php
